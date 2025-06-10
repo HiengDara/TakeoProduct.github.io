@@ -13,6 +13,20 @@
 
   <body>
     <header>
+    
+    <!-- This div will contain Google's language selector -->
+    <div id="google_translate_element"></div>
+    
+    <!-- Simple language buttons -->
+    <button class="language-btn" onclick="doGTranslate('en|en')">English</button>
+    <button class="language-btn" onclick="doGTranslate('en|km')">Khmer</button>
+    
+    <!-- Content to be translated -->
+    <div id="content">
+        <h2>Welcome to our website</h2>
+        <p>This is a demonstration of Google Translate functionality.</p>
+        <p>Click the buttons above to switch between English and Khmer.</p>
+    </div>
       <div class="header-content">
         <img
           src="images/logo.png"
@@ -55,7 +69,7 @@
               </button>
             </li>
             <li>
-              <button class="language-option" data-lang="kh">
+              <button class="language-option" data-lang="kh" onclick="changeLanguage('km')">
                 <img
                   src="https://flagcdn.com/w20/kh.png"
                   width="20"
