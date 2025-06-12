@@ -775,17 +775,17 @@
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
                 pageLanguage: 'en', // Your content's original language (English)
-                includedLanguages: 'en,km', // Show only English and Khmer
+                includedLanguages: 'en,km-KH', // Show only English and Khmer
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
 
             // Auto-translate to Khmer if user's browser prefers Khmer
-            if (navigator.language === 'km' ||
-                (navigator.languages && navigator.languages.includes('km'))) {
+            if (navigator.language === 'km-KH' ||
+                (navigator.languages && navigator.languages.includes('km-KH'))) {
                 setTimeout(function () {
                     var select = document.querySelector("select.goog-te-combo");
                     if (select) {
-                        select.value = 'km';
+                        select.value = 'km-KH';
                         select.dispatchEvent(new Event('change'));
                     }
                 }, 1000);
