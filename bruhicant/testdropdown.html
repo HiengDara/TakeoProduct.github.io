@@ -92,3 +92,34 @@
 
 </body>
 </html>
+
+
+
+
+    <script src="script.js"></script>
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element" style="position:fixed;bottom:20px;right:20px;z-index:1000;"></div>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // Your content's original language (English)
+                includedLanguages: 'en,km-KH', // Show only English and Khmer
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+
+            // Auto-translate to Khmer if user's browser prefers Khmer
+            if (navigator.language === 'km-KH' ||
+                (navigator.languages && navigator.languages.includes('km-KH'))) {
+                setTimeout(function () {
+                    var select = document.querySelector("select.goog-te-combo");
+                    if (select) {
+                        select.value = 'km-KH';
+                        select.dispatchEvent(new Event('change'));
+                    }
+                }, 1000);
+            }
+        }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
