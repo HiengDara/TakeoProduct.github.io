@@ -38,10 +38,10 @@
                     <div class="form-group">
                         <label for="role">Role</label>
                         <select id="role" name="role" required>
-                            <option value="">Select your role</option>
-                            <option value="manager">Sales Manager</option>
-                            <option value="supervisor">Operations Supervisor</option>
-                            <option value="admin">System Administrator</option>
+                            <option value="">Select your location</option>
+                            <option value="manager">CTC Angkor Borei</option>
+                            <option value="supervisor">CTC 100 Knong</option>
+                            <option value="admin">CTC High School</option>
                         </select>
                     </div>
 
@@ -52,10 +52,37 @@
     </div>
 
     <!-- Dashboard Page -->
+    <header>
+        <!-- <div id="google_translate_element"></div> -->
+    
+        <div class="header-content">
+            <img src="../images/logo.png" alt="Takeo Khmer Products Logo" class="logo">
+            <div class="header-text">
+                <h1>Takeo Khmer Products Directory</h1>
+                <p>Explore authentic local products made in Takeo Province, Cambodia</p>
+            </div>
+    
+            <!-- Flag Dropdown -->
+            <!-- <div class="dropdown">
+                <button class="dropbtn">
+                    <img src="https://flagcdn.com/gb.svg" width="20" alt="English" class="flag">
+                    English
+                </button>
+                <div class="dropdown-content">
+                    <div onclick="setLanguage('en')">
+                        <img src="https://flagcdn.com/gb.svg" width="20" alt="English" class="flag"> English
+                    </div>
+                    <div onclick="setLanguage('km')">
+                        <img src="https://flagcdn.com/kh.svg" width="20" alt="Khmer" class="flag"> ខ្មែរ
+                    </div>
+                </div>
+            </div> -->
+    </div>
+    </header>
     <div id="dashboardPage" class="page">
         <header class="dashboard-header">
             <div class="header-content">
-                <h1>Seller Dashboard</h1>
+                <h1>CTC Admin Dashboard</h1>
                 <div class="header-actions">
                     <button id="addSellerBtn" class="btn btn-primary">+ Add New Seller</button>
                     <button id="logoutBtn" class="btn btn-secondary">Logout</button>
@@ -92,7 +119,6 @@
             <section class="sellers-section">
                 <h2>Active Sellers</h2>
                 <div id="sellersList" class="sellers-list">
-                    <!-- Sellers will be dynamically added here -->
                 </div>
             </section>
         </main>
