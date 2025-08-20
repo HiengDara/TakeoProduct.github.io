@@ -10,45 +10,52 @@
 </head>
 
 <body>
-    <header>
-    <div class="header-content">
-        <img src="images/logo.png" alt="Takeo Khmer Products Logo" class="logo">
-        <div class="header-text">
-            <h1>Takeo Khmer Products Directory</h1>
-            <p>Explore authentic local products made in Takeo Province, Cambodia</p>
-        </div>
-        
-        <!-- Language Dropdown -->
-        <div class="language-dropdown">
-        <button class="language-current" aria-expanded="false">
-            <img src="https://flagcdn.com/w20/gb.png" width="20" alt="English">
-            <span>EN</span>
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-            <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2"/>
-            </svg>
-        </button>
-        <ul class="language-options">
-            <li>
-            <button class="language-option active" data-lang="en">
-                <img src="https://flagcdn.com/w20/gb.png" width="20" alt="English">
-                <span>English</span>
-            </button>
-            </li>
-            <li>
-            <button class="language-option" data-lang="kh">
-                <img src="https://flagcdn.com/w20/kh.png" width="20" alt="Khmer">
-                <span>ភាសាខ្មែរ</span>
-            </button>
-            </li>
-        </ul>
-        </div>
+<header>
+        <!-- <div id="google_translate_element"></div> -->
+
+  <div class="header-content">
+    <img src="images/logo.png" alt="Takeo Khmer Products Logo" class="logo">
+    <div class="header-text">
+      <h1>Takeo Khmer Products Directory</h1>
+      <p>Explore authentic local products made in Takeo Province, Cambodia</p>
     </div>
-    </header>
+
+    <!-- Flag Dropdown -->
+    <div class="dropdown">
+      <button class="dropbtn">
+        <img src="https://flagcdn.com/gb.svg" width="20" alt="English" class="flag">
+        English
+      </button>
+      <div class="dropdown-content">
+        <div onclick="setLanguage('en')">
+          <img src="https://flagcdn.com/gb.svg" width="20" alt="English" class="flag"> English
+        </div>
+        <div onclick="setLanguage('km')">
+          <img src="https://flagcdn.com/kh.svg" width="20" alt="Khmer" class="flag"> ខ្មែរ
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Google Translate setup -->
+<div id="google_translate_element" style="display: none;"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,km',
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
 <!-- Google Translate Element (hidden) -->
-<div id="google_translate_element" style="display:none;"></div>
+<!-- <div id="google_translate_element" style="display:none;"></div> -->
 
-<div id="google_translate_element" style="display:none;"></div>
+<!-- <div id="google_translate_element" style="display:none;"></div> -->
 
     <nav>
         <button onclick="showCategory('foods')" class="active">
@@ -766,34 +773,43 @@
         <p>© 2023 Takeo Local Products Directory. All rights reserved.</p>
         <p>Supporting local artisans and small businesses in Takeo Province, Cambodia</p>
     </footer>
-
-    <script src="script.js"></script>
-    <!-- Google Translate Widget -->
-    <div id="google_translate_element" style="position:fixed;bottom:20px;right:20px;z-index:1000;"></div>
-
-    <script>
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'en', // Your content's original language (English)
-                includedLanguages: 'en,km', // Show only English and Khmer
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-            }, 'google_translate_element');
-
-            // Auto-translate to Khmer if user's browser prefers Khmer
-            if (navigator.language === 'km' ||
-                (navigator.languages && navigator.languages.includes('km'))) {
-                setTimeout(function () {
-                    var select = document.querySelector("select.goog-te-combo");
-                    if (select) {
-                        select.value = 'km';
-                        select.dispatchEvent(new Event('change'));
-                    }
-                }, 1000);
-            }
-        }
+    <!-- Google Translate -->
+    <div id="google_translate_element" style="display: none;"></div>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,km',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+    }
     </script>
 
     <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+  function setLanguage(lang) {
+    const button = document.querySelector(".dropbtn");
+    
+    // Update UI
+    if (lang === 'km') {
+      button.innerHTML = '<img src="https://flagcdn.com/kh.svg" width="20" class="flag"> ខ្មែរ';
+    } else {
+      button.innerHTML = '<img src="https://flagcdn.com/gb.svg" width="20" class="flag"> English';
+    }
+
+    // Perform translation using Google Translate
+    const combo = document.querySelector("select.goog-te-combo");
+    if (combo) {
+      combo.value = lang;
+      combo.dispatchEvent(new Event("change"));
+    } else {
+      console.error("Google Translate not initialized yet.");
+    }
+  }
+</script>
+
+
 </body>
 
 </html>

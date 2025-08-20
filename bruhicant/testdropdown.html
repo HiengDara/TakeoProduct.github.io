@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Language Selector with Flags</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropbtn {
+      background-color: #f1f1f1;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      min-width: 100px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content div {
+      padding: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dropdown-content div:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    img.flag {
+      width: 20px;
+      height: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dropdown">
+    <button class="dropbtn">
+      <img src="https://flagcdn.com/gb.svg" alt="English" class="flag">
+      English
+    </button>
+    <div class="dropdown-content">
+      <div onclick="setLanguage('en')">
+        <img src="https://flagcdn.com/gb.svg" alt="English" class="flag"> English
+      </div>
+      <div onclick="setLanguage('km')">
+        <img src="https://flagcdn.com/kh.svg" alt="Khmer" class="flag"> ខ្មែរ
+      </div>
+    </div>
+  </div>
+
+  <p id="output">Hello!</p>
+
+  <script>
+    function setLanguage(lang) {
+      const output = document.getElementById("output");
+      const button = document.querySelector(".dropbtn");
+
+      if (lang === "km") {
+        output.textContent = "សួស្តី!";
+        button.innerHTML = '<img src="https://flagcdn.com/kh.svg" class="flag"> ខ្មែរ';
+      } else {
+        output.textContent = "Hello!";
+        button.innerHTML = '<img src="https://flagcdn.com/gb.svg" class="flag"> English';
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+    <script src="script.js"></script>
+    <!-- Google Translate Widget -->
+    <div id="google_translate_element" style="position:fixed;bottom:20px;right:20px;z-index:1000;"></div>
+
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // Your content's original language (English)
+                includedLanguages: 'en,km-KH', // Show only English and Khmer
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+
+            // Auto-translate to Khmer if user's browser prefers Khmer
+            if (navigator.language === 'km-KH' ||
+                (navigator.languages && navigator.languages.includes('km-KH'))) {
+                setTimeout(function () {
+                    var select = document.querySelector("select.goog-te-combo");
+                    if (select) {
+                        select.value = 'km-KH';
+                        select.dispatchEvent(new Event('change'));
+                    }
+                }, 1000);
+            }
+        }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
