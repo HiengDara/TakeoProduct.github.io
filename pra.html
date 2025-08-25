@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Translate Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #google_translate_element {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .language-btn {
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Translation Demo</h1>
+    
+    <!-- This div will contain Google's language selector -->
+    <div id="google_translate_element"></div>
+    
+    <!-- Simple language buttons -->
+    <!-- <button class="language-btn" onclick="doGTranslate('en|en')">English</button>
+    <button class="language-btn" onclick="doGTranslate('en|km')">Khmer</button> -->
+    
+    <!-- Content to be translated -->
+    <div id="content">
+        <h2>Welcome to our website</h2>
+        <p>This is a demonstration of Google Translate functionality.</p>
+        <p>Click the buttons above to switch between English and Khmer.</p>
+    </div>
+    
+    <script>
+        // This function initializes the Google Translate element
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',           // Default language of your page
+                includedLanguages: 'en,km',   // Languages you want to support
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+        
+        // Function to change language programmatically
+        function doGTranslate(langPair) {
+            // Find the Google Translate dropdown
+            const select = document.querySelector('.goog-te-combo');
+            if (!select) {
+                console.log("Google Translate element not found");
+                return;
+            }
+            
+            // Extract target language code (e.g., 'km' from 'en|km')
+            const lang = langPair.split('|')[1];
+            
+            // Change the language
+            select.value = lang;
+            
+            // Trigger the change event
+            const event = new Event('change');
+            select.dispatchEvent(event);
+        }
+    </script>
+    
+    <!-- Load Google Translate API -->
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

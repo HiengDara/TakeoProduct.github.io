@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Takeo Local Products</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="sty.css" />
+  </head>
+
+  <body>
+    <header>
+    
+    <!-- This div will contain Google's language selector -->
+    <div id="google_translate_element"></div>
+    
+    <!-- Simple language buttons -->
+    <button class="language-btn" onclick="doGTranslate('en|en')">English</button>
+    <button class="language-btn" onclick="doGTranslate('en|km')">Khmer</button>
+    
+    <!-- Content to be translated -->
+    <div id="content">
+        <h2>Welcome to our website</h2>
+        <p>This is a demonstration of Google Translate functionality.</p>
+        <p>Click the buttons above to switch between English and Khmer.</p>
+    </div>
+      <div class="header-content">
+        <img
+          src="images/logo.png"
+          alt="Takeo Khmer Products Logo"
+          class="logo"
+        />
+        <div class="header-text">
+          <h1>Takeo Khmer Products Directory</h1>
+          <p>
+            Explore authentic local products made in Takeo Province, Cambodia
+          </p>
+        </div>
+
+        <!-- Language Dropdown -->
+        <div class="language-dropdown">
+          <button class="language-current" aria-expanded="false">
+            <img
+              src="https://flagcdn.com/w20/gb.png"
+              width="20"
+              alt="English"
+            />
+            <span>EN</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+              <path
+                d="M1 1.5L6 6.5L11 1.5"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+            </svg>
+          </button>
+          <ul class="language-options">
+            <li>
+              <button class="language-option active" data-lang="en">
+                <img
+                  src="https://flagcdn.com/w20/gb.png"
+                  width="20"
+                  alt="English"
+                />
+                <span>English</span>
+              </button>
+            </li>
+            <li>
+              <button class="language-option" data-lang="kh" onclick="changeLanguage('km')">
+                <img
+                  src="https://flagcdn.com/w20/kh.png"
+                  width="20"
+                  alt="Khmer"
+                />
+                <span>ភាសាខ្មែរ</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- Google Translate Element (hidden) -->
+    <div id="google_translate_element" style="display: none"></div>
+
+    <!-- <div id="google_translate_element" style="display:none;"></div> -->
+
+    <nav>
+      <button onclick="showCategory('foods')" class="active">
+        <i class="fas fa-utensils"></i> Foods & Drinks
+      </button>
+      <button onclick="showCategory('fashion')">
+        <i class="fas fa-tshirt"></i> Fashion
+      </button>
+      <button onclick="showCategory('gifts')">
+        <i class="fas fa-gift"></i> Gifts & Crafts
+      </button>
+    </nav>
+
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search products..."
+        oninput="filterProducts()"
+      />
+    </div>
+    <div class="container">
+      <section id="foods" class="active">
+        <div class="products-grid">
+          <div class="product">
+            <img
+              src="images/palmsugar.png"
+              alt="Palm Sugar"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Organic Palm Sugar</h3>
+              <p>
+                Sweet and natural palm sugar made by local farmers in Takeo
+                using traditional methods.
+              </p>
+              <div class="product-price">$3.50 - $15.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <div class="product">
+            <img src="images/prohok.png" alt="Prahok" class="product-image" />
+            <div class="product-content">
+              <h3>Takeo Special Prahok</h3>
+              <p>Premium fermented fish paste with unique Takeo flavor.</p>
+              <div class="product-price">$5.00 - $20.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="https://t.me/dara_999"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/bananachip.png"
+              alt="Banana Chips"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Crispy Banana Chips</h3>
+              <p>Crunchy snacks made from Takeo's sweet bananas.</p>
+              <div class="product-price">$2.00 - $8.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/ricewine.png"
+              alt="Rice Wine"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Traditional Rice Wine</h3>
+              <p>Authentic Takeo rice wine with 30-day fermentation.</p>
+              <div class="product-price">$4.00 - $25.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img src="images/pepper.png" alt="Pepper" class="product-image" />
+            <div class="product-content">
+              <h3>Takeo-Grown Pepper</h3>
+              <p>Premium pepper with rich aroma from Takeo's soil.</p>
+              <div class="product-price">$6.00 - $30.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/bamboostickyrice.png"
+              alt="Sticky Rice"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Takeo Fragrant Sticky Rice</h3>
+              <p>Premium quality sticky rice with natural aroma.</p>
+              <div class="product-price">$3.00 - $12.00</div>
+              <a
+                href="https://t.me/meysxrng"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="images/coconutcandy.png"
+              alt="Coconut Candy"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Traditional Coconut Candy</h3>
+              <p>Sweet chewy candy made from fresh Takeo coconuts.</p>
+              <div class="product-price">$2.50 - $10.00</div>
+              <a
+                href="https://t.me/meysxrng"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/mangojam.png"
+              alt="Mango Jam"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Homemade Mango Jam</h3>
+              <p>100% natural jam from Takeo's sweet mangoes.</p>
+              <div class="product-price">$4.00 - $15.00</div>
+              <a
+                href="https://t.me/meysxrng"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/lemongrasstea.png"
+              alt="Lemongrass Tea"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Organic Lemongrass Tea</h3>
+              <p>Dried lemongrass from Takeo's organic farms.</p>
+              <div class="product-price">$3.00 - $12.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/driedfish.png"
+              alt="Dried Fish"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Takeo Dried Fish</h3>
+              <p>Sun-dried fish from Takeo's freshwater lakes.</p>
+              <div class="product-price">$5.00 - $20.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/sesamecandy.png"
+              alt="Sesame Candy"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Sesame Seed Candy</h3>
+              <p>Crunchy sesame treats with palm sugar.</p>
+              <div class="product-price">$2.00 - $8.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/stickyrice.png"
+              alt="Bamboo Rice"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Bamboo Sticky Rice</h3>
+              <p>Traditional rice cooked in bamboo tubes.</p>
+              <div class="product-price">$3.50 - $15.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="images/pickle.png"
+              alt="Pickled Vegetables"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Traditional Pickles</h3>
+              <p>Mixed vegetables pickled in Takeo's special recipe.</p>
+              <div class="product-price">$2.50 - $10.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img src="images/honey.png" alt="Honey" class="product-image" />
+            <div class="product-content">
+              <h3>Wild Takeo Honey</h3>
+              <p>Pure honey from Takeo's forest areas.</p>
+              <div class="product-price">$6.00 - $25.00</div>
+              <a
+                href="https://t.me/dara_999"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/driedbananaflowe.png"
+              alt="Banana Flower Salad"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Dried Banana Flower</h3>
+              <p>For making traditional Khmer salads.</p>
+              <div class="product-price">$3.00 - $12.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/currypaste.png"
+              alt="Kroeng Spice"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Kroeng Curry Paste</h3>
+              <p>Traditional Khmer curry spice blend.</p>
+              <div class="product-price">$3.50 - $15.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/saltedduckegg.png"
+              alt="Salted Eggs"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Takeo Salted Duck Eggs</h3>
+              <p>Perfect for Khmer pork belly dishes.</p>
+              <div class="product-price">$1.00 - $5.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/somokedfish.png"
+              alt="Smoked Fish"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Wood-Smoked Fish</h3>
+              <p>Traditional Takeo smoking method.</p>
+              <div class="product-price">$4.00 - $18.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="images/steamricecake.png"
+              alt="Rice Cakes"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Steamed Rice Cakes</h3>
+              <p>Soft and fluffy traditional snacks.</p>
+              <div class="product-price">$2.00 - $8.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/herbalteamix.png"
+              alt="Herbal Tea"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Takeo Herbal Tea Mix</h3>
+              <p>Traditional medicinal herbs blend.</p>
+              <div class="product-price">$3.50 - $15.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <!-- More food products here (same structure as above) -->
+        </div>
+      </section>
+
+      <section id="fashion">
+        <div class="products-grid">
+          <div class="product">
+            <img
+              src="images/Silk Krama Scarf.jpg"
+              alt="Krama"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Silk Krama Scarf</h3>
+              <p>
+                Handwoven traditional Cambodian scarf from Takeo weavers using
+                pure silk.
+              </p>
+              <div class="product-price">$12.00 - $35.00</div>
+              <a
+                href="https://t.me/kramaseller"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Cotton Krama Scarf.jpeg"
+              alt="Cotton Krama"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Cotton Krama Scarf</h3>
+              <p>Everyday use traditional Cambodian scarf.</p>
+              <div class="product-price">$8.00 - $20.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Handcrafted Silver Jewelry.jpg"
+              alt="Silver Jewelry"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Handcrafted Silver Jewelry</h3>
+              <p>Traditional Khmer designs by Takeo artisans.</p>
+              <div class="product-price">$20.00 - $120.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="images/Patterned Silk Scarf.webp"
+              alt="Silk Scarf"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Patterned Silk Scarf</h3>
+              <p>Elegant Takeo silk with modern designs.</p>
+              <div class="product-price">$15.00 - $50.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Cotton Traditional Shirt.jpg"
+              alt="Traditional Shirt"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Cotton Traditional Shirt</h3>
+              <p>Comfortable Cambodian-style button shirts.</p>
+              <div class="product-price">$8.00 - $25.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Handwoven Silk Skirt.jpg"
+              alt="Silk Skirt"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Handwoven Silk Skirt</h3>
+              <p>Traditional sampot with Takeo patterns.</p>
+              <div class="product-price">$25.00 - $80.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Hand-Beaded Clutch.jpg"
+              alt="Beaded Bag"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Hand-Beaded Clutch</h3>
+              <p>Intricate beadwork by Takeo craftswomen.</p>
+              <div class="product-price">$15.00 - $45.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Natural Raffia Bag.avif"
+              alt="Raffia Bag"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Natural Raffia Bag</h3>
+              <p>Eco-friendly handwoven shoulder bag.</p>
+              <div class="product-price">$12.00 - $35.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Cambodian Silk Tie.webp"
+              alt="Silk Tie"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Cambodian Silk Tie</h3>
+              <p>Luxury necktie with Khmer motifs.</p>
+              <div class="product-price">$18.00 - $40.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="images/Traditional Silver Bracelet.jpg"
+              alt="Silver Bracelet"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Traditional Silver Bracelet</h3>
+              <p>Handcrafted with ancient Khmer patterns.</p>
+              <div class="product-price">$25.00 - $90.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Organic Hemp Scarf.webp"
+              alt="Hemp Scarf"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Organic Hemp Scarf</h3>
+              <p>Natural fiber with traditional dye.</p>
+              <div class="product-price">$10.00 - $30.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Silk Wallet with Embroidery.jpg"
+              alt="Silk Wallet"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Silk Wallet with Embroidery</h3>
+              <p>Hand-stitched traditional money holder.</p>
+              <div class="product-price">$12.00 - $35.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Modern Krama Dress.jpg"
+              alt="Krama Dress"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Modern Krama Dress</h3>
+              <p>Contemporary design with traditional fabric.</p>
+              <div class="product-price">$20.00 - $60.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Handmade Leather Sandals.jpeg"
+              alt="Leather Sandals"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Handmade Leather Sandals</h3>
+              <p>Traditional style with modern comfort.</p>
+              <div class="product-price">$15.00 - $45.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Decorative Silk Pillow.jpeg"
+              alt="Silk Pillow"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Decorative Silk Pillow</h3>
+              <p>Home decor with Takeo silk patterns.</p>
+              <div class="product-price">$18.00 - $50.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="images/Traditional Silver Necklace.jpeg"
+              alt="Silver Necklace"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Traditional Silver Necklace</h3>
+              <p>Intricate Takeo craftsmanship.</p>
+              <div class="product-price">$30.00 - $150.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Bamboo Fiber Earrings.avif"
+              alt="Bamboo Earrings"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Bamboo Fiber Earrings</h3>
+              <p>Lightweight eco-friendly jewelry.</p>
+              <div class="product-price">$5.00 - $20.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Silk Kimono Jacket.jpg"
+              alt="Silk Kimono"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Silk Kimono Jacket</h3>
+              <p>Fusion style with Takeo patterns.</p>
+              <div class="product-price">$35.00 - $90.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Natural Hemp Sun Hat.jpg"
+              alt="Hemp Hat"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Natural Hemp Sun Hat</h3>
+              <p>Handwoven for sun protection.</p>
+              <div class="product-price">$10.00 - $30.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/Mini Silk Keychain.webp"
+              alt="Silk Keychain"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Mini Silk Keychain</h3>
+              <p>Small souvenir with big tradition.</p>
+              <div class="product-price">$3.00 - $10.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <!-- More fashion products here (same structure as above) -->
+        </div>
+      </section>
+      <section id="gifts">
+        <div class="products-grid">
+          <div class="product">
+            <img src="images/claypot.png" alt="Pottery" class="product-image" />
+            <div class="product-content">
+              <h3>Clay Pottery Gift Set</h3>
+              <p>
+                Handcrafted kitchen pottery and souvenirs from Takeo artisans
+                using local clay.
+              </p>
+              <div class="product-price">$10.00 - $60.00</div>
+              <a
+                href="https://t.me/potteryseller"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/bamboobasket.png"
+              alt="Bamboo Basket"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Woven Bamboo Baskets</h3>
+              <p>Various sizes for home and kitchen.</p>
+              <div class="product-price">$8.00 - $40.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/carvedwood.png"
+              alt="Wood Carving"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Hand-Carved Wood Art</h3>
+              <p>Depicting Cambodian culture and nature.</p>
+              <div class="product-price">$15.00 - $150.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/candle.png"
+              alt="Handmade Candles"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Scented Palm Wax Candles</h3>
+              <p>With local fragrances like lemongrass.</p>
+              <div class="product-price">$5.00 - $25.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/reedfloor.png"
+              alt="Reed Mat"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Traditional Reed Floor Mat</h3>
+              <p>Natural material, handwoven.</p>
+              <div class="product-price">$12.00 - $45.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/sandstone carving.png"
+              alt="Stone Sculpture"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Sandstone Carving</h3>
+              <p>Inspired by Angkorian art.</p>
+              <div class="product-price">$25.00 - $200.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="images/lacquerbox.png"
+              alt="Lacquerware"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Traditional Lacquer Box</h3>
+              <p>Handcrafted with eggshell inlay.</p>
+              <div class="product-price">$15.00 - $80.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/bambooflute.png"
+              alt="Bamboo Flute"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Handmade Bamboo Flute</h3>
+              <p>Traditional Khmer musical instrument.</p>
+              <div class="product-price">$10.00 - $35.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/silkart.png"
+              alt="Silk Painting"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Silk Art Painting</h3>
+              <p>Depicting Cambodian rural life.</p>
+              <div class="product-price">$20.00 - $120.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/coconutshell.png"
+              alt="Coconut Bowl"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Coconut Shell Tableware</h3>
+              <p>Eco-friendly bowls and cups.</p>
+              <div class="product-price">$8.00 - $30.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/silverbetel.png"
+              alt="Silver Box"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Silver Betel Nut Box</h3>
+              <p>Traditional ceremonial item.</p>
+              <div class="product-price">$30.00 - $150.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+
+          <div class="product">
+            <img
+              src="images/bamboowindchime.png"
+              alt="Bamboo Wind Chime"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Bamboo Wind Chime</h3>
+              <p>Natural sound for your garden.</p>
+              <div class="product-price">$12.00 - $35.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <div class="product">
+            <img
+              src="images/herbalsoap.png"
+              alt="Handmade Soap"
+              class="product-image"
+            />
+            <div class="product-content">
+              <h3>Natural Herbal Soap</h3>
+              <p>With local ingredients like turmeric.</p>
+              <div class="product-price">$3.00 - $15.00</div>
+              <a
+                href="https://t.me/takeoproducts"
+                class="telegram-btn"
+                target="_blank"
+              >
+                <i class="fab fa-telegram"></i> Contact Seller
+              </a>
+            </div>
+          </div>
+          <!-- More gift products here (same structure as above) -->
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>© 2023 Takeo Local Products Directory. All rights reserved.</p>
+      <p>
+        Supporting local artisans and small businesses in Takeo Province,
+        Cambodia
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Google Translate Widget -->
+    <div
+      id="google_translate_element"
+      style="position: fixed; bottom: 20px; right: 20px; z-index: 1000"
+    ></div>
+
+    <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en", // Your content's original language (English)
+            includedLanguages: "en,km", // Show only English and Khmer
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+
+        // Auto-translate to Khmer if user's browser prefers Khmer
+        if (
+          navigator.language === "km" ||
+          (navigator.languages && navigator.languages.includes("km"))
+        )
+          function autoTranslateToKhmer() {
+            const select = document.querySelector("select.goog-te-combo");
+            if (select) {
+              select.value = "km";
+              select.dispatchEvent(new Event("change"));
+              return true;
+            }
+            return false;
+          }
+
+        if (
+          navigator.language === "km" ||
+          (navigator.languages && navigator.languages.includes("km"))
+        ) {
+          const interval = setInterval(() => {
+            if (autoTranslateToKhmer()) {
+              clearInterval(interval);
+            }
+          }, 500);
+        }
+      }
+    </script>
+
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </body>
+</html>
